@@ -12,13 +12,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Header1(){
+fun Header1(header: String){
     Row(modifier = Modifier
         .padding(horizontal = 9.dp),
         verticalAlignment = Alignment.Bottom
     ) {
         Text(
-            text = "Albums",
+            text = header,
             modifier = Modifier.weight(1f),
             style = MaterialTheme.typography.titleSmall,
             fontWeight = FontWeight.Bold
