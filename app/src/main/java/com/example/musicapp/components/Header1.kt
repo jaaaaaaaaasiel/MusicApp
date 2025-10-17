@@ -21,7 +21,8 @@ fun Header1(header: String){
             text = header,
             modifier = Modifier.weight(1f),
             style = MaterialTheme.typography.titleSmall,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = Color.Black
         )
         Text(
             text = "See more",

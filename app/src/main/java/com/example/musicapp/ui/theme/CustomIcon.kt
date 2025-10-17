@@ -1,61 +1,58 @@
-package com.example.musicapp.ui.theme
+package com.composables
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
-val Play_circle: ImageVector
+val PlayCircle: ImageVector
     get() {
-        if (_Play_circle != null) return _Play_circle!!
+        if (_PlayCircle != null) return _PlayCircle!!
 
-        _Play_circle = ImageVector.Builder(
-            name = "Play_circle",
+        _PlayCircle = ImageVector.Builder(
+            name = "PlayCircle",
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
-            viewportWidth = 960f,
-            viewportHeight = 960f
+            viewportWidth = 24f,
+            viewportHeight = 24f
         ).apply {
             path(
-                fill = SolidColor(Color(0xFF000000))
+                stroke = SolidColor(Color(0xFF0F172A)),
+                strokeLineWidth = 1.5f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
             ) {
-                moveToRelative(380f, -300f)
-                lineToRelative(280f, -180f)
-                lineToRelative(-280f, -180f)
+                moveTo(21f, 12f)
+                curveTo(21f, 16.9706f, 16.9706f, 21f, 12f, 21f)
+                curveTo(7.02944f, 21f, 3f, 16.9706f, 3f, 12f)
+                curveTo(3f, 7.02944f, 7.02944f, 3f, 12f, 3f)
+                curveTo(16.9706f, 3f, 21f, 7.02944f, 21f, 12f)
                 close()
-                moveTo(480f, 880f)
-                quadToRelative(-83f, 0f, -156f, -31.5f)
-                reflectiveQuadTo(197f, 763f)
-                reflectiveQuadToRelative(-85.5f, -127f)
-                reflectiveQuadTo(80f, 480f)
-                reflectiveQuadToRelative(31.5f, -156f)
-                reflectiveQuadTo(197f, 197f)
-                reflectiveQuadToRelative(127f, -85.5f)
-                reflectiveQuadTo(480f, 80f)
-                reflectiveQuadToRelative(156f, 31.5f)
-                reflectiveQuadTo(763f, 197f)
-                reflectiveQuadToRelative(85.5f, 127f)
-                reflectiveQuadTo(880f, 480f)
-                reflectiveQuadToRelative(-31.5f, 156f)
-                reflectiveQuadTo(763f, 763f)
-                reflectiveQuadToRelative(-127f, 85.5f)
-                reflectiveQuadTo(480f, 880f)
-                moveToRelative(0f, -80f)
-                quadToRelative(134f, 0f, 227f, -93f)
-                reflectiveQuadToRelative(93f, -227f)
-                reflectiveQuadToRelative(-93f, -227f)
-                reflectiveQuadToRelative(-227f, -93f)
-                reflectiveQuadToRelative(-227f, 93f)
-                reflectiveQuadToRelative(-93f, 227f)
-                reflectiveQuadToRelative(93f, 227f)
-                reflectiveQuadToRelative(227f, 93f)
-                moveToRelative(0f, -320f)
+            }
+            path(
+                stroke = SolidColor(Color(0xFF0F172A)),
+                strokeLineWidth = 1.5f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round
+            ) {
+                moveTo(15.9099f, 11.6722f)
+                curveTo(16.1671f, 11.8151f, 16.1671f, 12.1849f, 15.9099f, 12.3278f)
+                lineTo(10.3071f, 15.4405f)
+                curveTo(10.0572f, 15.5794f, 9.75f, 15.3986f, 9.75f, 15.1127f)
+                verticalLineTo(8.88732f)
+                curveTo(9.75f, 8.60139f, 10.0572f, 8.42065f, 10.3071f, 8.55951f)
+                lineTo(15.9099f, 11.6722f)
+                close()
             }
         }.build()
 
-        return _Play_circle!!
+        return _PlayCircle!!
     }
 
-private var _Play_circle: ImageVector? = null
+private var _PlayCircle: ImageVector? = null
+
+
 

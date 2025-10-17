@@ -30,12 +30,12 @@ fun TopBox(){
     Column(modifier = Modifier
         .padding(top = 11.dp, start = 9.dp, end = 9.dp, bottom = 16.dp)
         .fillMaxWidth()
-        .height(150.dp)
+        .height(120.dp)
         .clip(RoundedCornerShape(21.dp))
         .background(Brush.linearGradient(listOf(BackDeg2, BackDeg1, Color.Red),
             start = Offset(0f, 0f),
             end = Offset(0f, 500f)))
-        .padding(all = 21.dp)
+        .padding(all = 19.dp)
     ) {
         Row(modifier = Modifier
             .fillMaxWidth()

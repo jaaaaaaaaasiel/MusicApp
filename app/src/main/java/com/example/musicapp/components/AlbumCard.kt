@@ -1,6 +1,7 @@
 package com.example.musicapp.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,8 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -24,19 +23,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
+import com.composables.PlayCircle
 import com.example.musicapp.models.Album
 import com.example.musicapp.ui.theme.BackDeg1
 import com.example.musicapp.ui.theme.BackDeg5
-import com.example.musicapp.ui.theme.Play_circle
+import com.example.musicapp.ui.theme.Hueso
 
 @Composable
-fun AlbumCard(album: Album){
+fun AlbumCard(
+    album: Album,
+    onClick: () -> Unit
+    ){
     Box(modifier = Modifier
-        .padding(horizontal = 12.dp)
+        .padding(start = 12.dp, end = 12.dp, bottom = 7.dp)
         .height(145.dp)
         .width(155.dp)
-        .clip(RoundedCornerShape(14.dp)),
+        .clip(RoundedCornerShape(14.dp))
+        .clickable(enabled = true, onClick = onClick),
         contentAlignment = Alignment.BottomEnd
         ){
         AsyncImage(
@@ -51,24 +56,29 @@ fun AlbumCard(album: Album){
             .padding(7.dp)
             .fillMaxWidth()
             .clip(RoundedCornerShape(7.dp))
-            .background(Color.Transparent.copy(alpha = 0.4f))
+            .background(Color.Transparent.copy(alpha = 0.3f))
             .padding(5.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(Modifier.weight(1f)) {
                 Text(
                     text = album.title,
-                    style = MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.labelLarge,
+                    fontSize = 13.sp,
+                    color = Hueso
                 )
                 Text(
                     text = album.artist,
-                    style = MaterialTheme.typography.bodySmall,
-                    fontWeight = FontWeight.Light)
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Light,
+                    color = Hueso
+                )
             }
             Icon(
-                imageVector = Play_circle,
+                imageVector = PlayCircle,
                 contentDescription = "Listen Now!",
-                tint = Color.White)
+                tint = Hueso
+            )
         }
     }
 }

@@ -15,4 +15,4 @@ val BackDeg2 = Color(0xFFA9142A)
 val BackDeg3 = Color(0xFF661420)
 val BackDeg4 = Color(0xFF2B1215)
 val BackDeg5 = Color(0xFF121212)
-
+val Hueso = Color(0xFFF8F6F0)
