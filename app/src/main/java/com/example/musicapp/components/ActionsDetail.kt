@@ -2,6 +2,7 @@ package com.example.musicapp.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.example.musicapp.ui.theme.Hueso
 
 @Composable
-fun ActionsDetail(){
+fun ActionsDetail(onClick: () -> Unit = {}){
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -36,6 +37,7 @@ fun ActionsDetail(){
                 .border(width = 0.5.dp, Hueso, shape = CircleShape)
                 .background(Color.Transparent.copy(alpha = 0.25f))
                 .padding(5.dp)
+                .clickable(enabled = true, onClick = onClick)
         )
         Spacer(Modifier.weight(1f))
         Icon(

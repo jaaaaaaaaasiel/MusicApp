@@ -31,10 +31,7 @@ import com.example.musicapp.ui.theme.BackDeg5
 import com.example.musicapp.ui.theme.Hueso
 
 @Composable
-fun RecentlyCard(
-    album: Album,
-    onClick: () -> Unit
-){
+fun TrackCard(album: Album?, i: Int){
     Row(modifier = Modifier
         .padding(9.dp)
         .fillMaxWidth()
@@ -48,15 +45,15 @@ fun RecentlyCard(
         .shadow(
             elevation = 2.dp,
             shape = RoundedCornerShape(14.dp),
-            ambientColor = Color.White)
+            ambientColor = Color.White
+        )
         .background(Color.Transparent.copy(alpha = 0.27f))
-        .padding(7.dp)
-        .clickable(enabled = true, onClick= onClick),
+        .padding(7.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         AsyncImage(
-            model = album.image,
-            contentDescription = album.title,
+            model = album?.image,
+            contentDescription = album?.title,
             modifier = Modifier
                 .padding(start = 3.dp)
                 .width(54.dp)
@@ -70,12 +67,12 @@ fun RecentlyCard(
             .weight(1f)
         ) {
             Text(
-                text = album.title,
+                text = "${album?.title}   •   Track ${i}",
                 style = MaterialTheme.typography.labelLarge,
                 color = Hueso.copy(alpha = 0.9f)
             )
             Text(
-                text= "${album.artist}   •   Popular Song",
+                text= "${album?.artist}   •   Popular Song",
                 style = MaterialTheme.typography.labelSmall,
                 color = Hueso.copy(alpha = 0.7f)
             )
