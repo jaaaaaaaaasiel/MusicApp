@@ -73,13 +73,6 @@ fun Speaker(
                 fontSize = 12.sp,
                 color = Hueso.copy(alpha = 0.85f))
         }
-        Icon(
-            PlayCircle,
-            "Play",
-            tint = Hueso,
-            modifier = Modifier
-                .padding(end = 7.dp)
-                .size(35.dp)
-        )
+        PlayCircle(Modifier.size(35.dp), tint = Hueso)
     }
 }
