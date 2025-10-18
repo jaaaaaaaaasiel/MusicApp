@@ -42,7 +42,6 @@ fun DetailBox(nav: NavController, album: Album?) {
                     )
                 )
             )
-            .padding(top = 19.dp, start = 14.dp, end = 14.dp, bottom = 30.dp)
     ) {
         AsyncImage(
             model = album?.image,
@@ -54,7 +53,9 @@ fun DetailBox(nav: NavController, album: Album?) {
             contentScale = ContentScale.Crop
         )
         Column(
-            Modifier.fillMaxSize()
+            Modifier
+                .fillMaxSize()
+                .padding(top = 19.dp, start = 14.dp, end = 14.dp, bottom = 30.dp)
         ) {
             ActionsDetail{
                 nav.navigate(HomeScreenRoute)

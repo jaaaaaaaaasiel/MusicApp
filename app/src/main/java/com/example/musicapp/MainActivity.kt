@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MusicAppTheme {
                 val nav = rememberNavController()
+                val sharedViewModel = SharedViewModel()
                 Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
                     NavHost(
                         navController = nav,
@@ -36,12 +37,12 @@ class MainActivity : ComponentActivity() {
                             HomeScreen(
                                 nav = nav,
                                 padding = PaddingValues(
-                                    top = 24.dp,
+                                    top = 30.dp,
                                     start = 16.dp,
                                     end = 16.dp,
                                     bottom = 16.dp
                                 ),
-                                sharedViewModel = SharedViewModel()
+                                sharedViewModel = sharedViewModel
                             )
                         }
                         composable<AlbumDetailScreenRoute> { backStack ->
@@ -50,12 +51,12 @@ class MainActivity : ComponentActivity() {
                                 id = args.id,
                                 nav = nav,
                                 padding = PaddingValues(
-                                    top = 24.dp,
+                                    top = 30.dp,
                                     start = 16.dp,
                                     end = 16.dp,
                                     bottom = 16.dp
                                 ),
-                                sharedViewModel = SharedViewModel()
+                                sharedViewModel = sharedViewModel
                             )
                         }
                     }

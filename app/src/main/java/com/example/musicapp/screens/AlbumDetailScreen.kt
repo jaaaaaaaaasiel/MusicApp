@@ -62,7 +62,7 @@ fun AlbumDetailScreen(
                         end = Offset(0f, 1500f)
                     )
                 )
-                .padding(top = 28.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
+                .padding(top = 55.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
             contentAlignment = Alignment.BottomCenter
         ) {
             LazyColumn(Modifier.fillMaxSize()) {

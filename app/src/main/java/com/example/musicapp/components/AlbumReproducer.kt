@@ -26,7 +26,6 @@ fun AlbumReproducer(album: Album?){
     Column(
         modifier = Modifier
             .height(100.dp)
-            .width(150.dp)
             .clip(RoundedCornerShape(16.dp))
             .background(Color.Transparent.copy(0.2f))
             .padding(5.dp)
@@ -35,14 +34,14 @@ fun AlbumReproducer(album: Album?){
             text = album?.title ?: "No selected album",
             style = MaterialTheme.typography.titleLarge,
             fontSize = 18.sp,
-            modifier = Modifier.padding(start = 5.dp),
+            modifier = Modifier.padding(horizontal = 5.dp),
             color = Hueso
         )
         Text(
             text = album?.artist ?: "No selected artist",
             style = MaterialTheme.typography.titleSmall,
             fontSize = 10.sp,
-            modifier = Modifier.padding(start = 5.dp),
+            modifier = Modifier.padding(horizontal = 5.dp),
             color = Hueso.copy(alpha = 0.7f)
 
         )

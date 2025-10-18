@@ -24,6 +24,7 @@ class AlbumDetailViewModel: ViewModel() {
                     service.getAlbumById(id)
                 }
                 album = result.await()
+                loading = false
             } catch (e: Exception) {
                loading = false
                Log.e("AlbumDetailViewModel", e.toString())
