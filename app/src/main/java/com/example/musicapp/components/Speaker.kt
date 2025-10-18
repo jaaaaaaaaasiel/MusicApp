@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +31,7 @@ import com.example.musicapp.ui.theme.Hueso
 
 @Composable
 fun Speaker(
-    selectedAlbum: Album,
+    selectedAlbum: Album?,
     onClick: () -> Unit
 ){
     Row(modifier = Modifier
@@ -48,8 +47,8 @@ fun Speaker(
         verticalAlignment = Alignment.CenterVertically
     ) {
         AsyncImage(
-            model = selectedAlbum.image,
-            contentDescription = selectedAlbum.title,
+            model = selectedAlbum?.image,
+            contentDescription = selectedAlbum?.title,
             modifier = Modifier
                 .padding(start = 2.2.dp)
                 .width(59.dp)
@@ -61,14 +60,14 @@ fun Speaker(
             .padding(start = 7.dp)
             .weight(1f)){
             Text(
-                text= selectedAlbum.title,
+                text= selectedAlbum?.title ?: "No selected album",
                 style = MaterialTheme.typography.headlineSmall,
                 fontSize = 14.sp,
                 lineHeight = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = Hueso)
             Text(
-                text = selectedAlbum.artist,
+                text = selectedAlbum?.artist ?: "No selected artist",
                 style = MaterialTheme.typography.headlineSmall,
                 fontSize = 12.sp,
                 color = Hueso.copy(alpha = 0.85f))

@@ -18,6 +18,7 @@ import com.example.musicapp.screens.HomeScreen
 import com.example.musicapp.ui.theme.MusicAppTheme
 import com.example.musicapp.ui.theme.routes.AlbumDetailScreenRoute
 import com.example.musicapp.ui.theme.routes.HomeScreenRoute
+import com.example.musicapp.viewmodel.SharedViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +39,9 @@ class MainActivity : ComponentActivity() {
                                     top = 24.dp,
                                     start = 16.dp,
                                     end = 16.dp,
-                                    bottom = 16.dp)
+                                    bottom = 16.dp
+                                ),
+                                sharedViewModel = SharedViewModel()
                             )
                         }
                         composable<AlbumDetailScreenRoute> { backStack ->
@@ -50,7 +53,9 @@ class MainActivity : ComponentActivity() {
                                     top = 24.dp,
                                     start = 16.dp,
                                     end = 16.dp,
-                                    bottom = 16.dp)
+                                    bottom = 16.dp
+                                ),
+                                sharedViewModel = SharedViewModel()
                             )
                         }
                     }
