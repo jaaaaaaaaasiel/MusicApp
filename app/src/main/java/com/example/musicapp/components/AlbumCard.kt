@@ -34,12 +34,13 @@ import com.example.musicapp.ui.theme.Hueso
 @Composable
 fun AlbumCard(
     album: Album,
+    scale: Float,
     onClick: () -> Unit
     ){
     Box(modifier = Modifier
         .padding(start = 12.dp, end = 12.dp, bottom = 7.dp)
-        .height(145.dp)
-        .width(155.dp)
+        .height((145*scale).dp)
+        .width((155*scale).dp)
         .clip(RoundedCornerShape(14.dp))
         .clickable(enabled = true, onClick = onClick),
         contentAlignment = Alignment.BottomEnd

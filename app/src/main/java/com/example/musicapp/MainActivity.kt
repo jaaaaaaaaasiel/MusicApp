@@ -21,13 +21,13 @@ import com.example.musicapp.ui.theme.routes.HomeScreenRoute
 import com.example.musicapp.viewmodel.SharedViewModel
 
 class MainActivity : ComponentActivity() {
+    val sharedViewModel = SharedViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             MusicAppTheme {
                 val nav = rememberNavController()
-                val sharedViewModel = SharedViewModel()
                 Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
                     NavHost(
                         navController = nav,

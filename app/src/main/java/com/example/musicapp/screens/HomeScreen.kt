@@ -10,10 +10,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -42,11 +47,22 @@ fun HomeScreen(
     sharedViewModel: SharedViewModel
 ){
     val vm: AlbumsViewModel = viewModel()
+    val listSate = rememberLazyListState()
+    var centerIndex by remember { mutableStateOf(0) }
+
 
     LaunchedEffect(true) {
         vm.loadAblbums()
     }
-
+    LaunchedEffect(listSate.firstVisibleItemIndex, listSate.firstVisibleItemScrollOffset) {
+        val visibleItems = listSate.layoutInfo.visibleItemsInfo
+        if (visibleItems.isNotEmpty()) {
+            val viewportCenter = listSate.layoutInfo.viewportEndOffset /2
+            centerIndex = visibleItems.minByOrNull {
+                kotlin.math.abs(it.offset + it.size / 2 - viewportCenter)
+            }?.index ?: 0
+        }
+    }
     if (vm.loading){
         Box(
             Modifier
@@ -76,12 +92,16 @@ fun HomeScreen(
                 item{
                     Column {
                         Header1("Albums")
-                        LazyRow(modifier = Modifier
+                        LazyRow(
+                            state = listSate,
+                            modifier = Modifier
                             .padding(vertical = 9.dp),
                             horizontalArrangement = Arrangement.SpaceAround
                         ) {
-                            items(vm.albums){ album ->
-                                AlbumCard(album){
+                            itemsIndexed(vm.albums){ index, album ->
+                                val distance = kotlin.math.abs(index - centerIndex)
+                                val scale = 1f - 0.3f * distance.coerceAtMost(1)
+                                AlbumCard(album, scale){
                                     nav.navigate(AlbumDetailScreenRoute(album.id))
                                 }
                             }
